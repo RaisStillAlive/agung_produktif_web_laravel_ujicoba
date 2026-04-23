@@ -48,48 +48,51 @@
                 </div>
             </div>
 
-            <div class="mb-8 p-6 bg-white rounded-xl shadow-sm border border-blue-100">
-                <h3 class="font-bold mb-4 text-lg text-blue-600">Tambah Proyek Baru</h3>
-                <form action="/add-project" method="POST" enctype="multipart/form-data"
-                    class="flex flex-col md:flex-row gap-4 items-end">
+            <div class="mb-8 p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
+                <h3 class="font-bold mb-6 text-xl text-slate-800 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-blue-600 rounded-full"></span>
+                    Tambah Proyek Baru
+                </h3>
+                <form action="/add-project" method="POST" enctype="multipart/form-data" class="space-y-6">
                     @csrf
-                    <div class="flex-1">
-                        <label class="block text-xs font-bold text-slate-400 mb-1">NAMA PROYEK</label>
-                        <input type="text" name="name" placeholder="Contoh: Web BPS" required
-                            class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none transition">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-slate-500 ml-1">NAMA PROYEK</label>
+                            <input type="text" name="name" placeholder="Contoh: Web BPS" required
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border-transparent focus:bg-white focus:ring-2 focus:ring-blue-400 outline-none transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-slate-500 ml-1">LINK PROYEK (URL)</label>
+                            <input type="url" name="link" placeholder="https://github.com/RaisStillAlive/..."
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border-transparent focus:bg-white focus:ring-2 focus:ring-blue-400 outline-none transition">
+                        </div>
                     </div>
 
-                    <div class="flex-1">
-                        <label class="block text-xs font-bold text-slate-400 mb-1">UPLOAD SCREENSHOT</label>
-                        <input type="file" name="image"
-                            class="w-full px-2 py-1.5 rounded-lg border bg-white text-sm">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-500 ml-1">DESKRIPSI PROYEK</label>
+                        <textarea name="description" rows="3" placeholder="Ceritakan sedikit tentang teknologi yang digunakan..."
+                            class="w-full px-4 py-3 rounded-xl bg-slate-50 border-transparent focus:bg-white focus:ring-2 focus:ring-blue-400 outline-none transition"></textarea>
                     </div>
 
-                    <div class="mb-4">
-                        <label class="block text-xs font-bold text-slate-400 mb-1">DESKRIPSI PROYEK</label>
-                        <textarea name="description" placeholder="Contoh: Membangun sistem inventaris menggunakan Laravel..."
-                            class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none transition"></textarea>
+                    <div class="flex flex-col md:flex-row gap-6 items-center">
+                        <div class="flex-1 w-full space-y-2">
+                            <label class="text-xs font-bold text-slate-500 ml-1">SCREENSHOT</label>
+                            <input type="file" name="image"
+                                class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                        </div>
+                        <div class="w-full md:w-48 space-y-2">
+                            <label class="text-xs font-bold text-slate-500 ml-1">STATUS</label>
+                            <select name="status"
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border-transparent focus:bg-white focus:ring-2 focus:ring-blue-400 outline-none">
+                                <option value="Ongoing">Ongoing</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+                        <button type="submit"
+                            class="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200 self-end">
+                            Simpan Proyek
+                        </button>
                     </div>
-
-                    <div class="mb-4">
-                        <label class="block text-xs font-bold text-slate-400 mb-1">LINK PROYEK (URL)</label>
-                        <input type="url" name="link" placeholder="https://github.com/username/project"
-                            class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none transition">
-                    </div>
-
-                    <div class="w-full md:w-40">
-                        <label class="block text-xs font-bold text-slate-400 mb-1">STATUS</label>
-                        <select name="status"
-                            class="w-full px-4 py-2 rounded-lg border bg-white outline-none focus:ring-2 focus:ring-blue-400">
-                            <option value="Ongoing">Ongoing</option>
-                            <option value="Completed">Completed</option>
-                        </select>
-                    </div>
-
-                    <button type="submit"
-                        class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition shadow-md">
-                        Simpan
-                    </button>
                 </form>
             </div>
 
